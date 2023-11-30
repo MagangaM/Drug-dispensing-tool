@@ -34,8 +34,52 @@ require_once('patientconfig.php');
 	<body class="account-page">
 
 	<div>
+	<?php
+	if (empty($firstName) || empty($lastName) || empty($age) || empty($gender) || empty($email) || empty($phoneNumber) || empty($password)) {
+                echo "Please fill in all the fields";
+            } else {
+                // Prepare and execute the SQL query
+                $stmt = $conn->prepare("INSERT INTO patients (patient_first_name, patient_last_name, patient_date_of_birth, patient_gender, patient_email, patient_phone_number, password ) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssssss", $firstName, $lastName, $age, $gender , $email, $phoneNumber, $password);
 
-    <?php
+                if ($stmt->execute()) {
+                    // Registration successful, display a success message using JavaScript
+                    echo "<script>
+                        var successMessage = document.createElement('div');
+                        successMessage.textContent = 'Registration successful';
+                        successMessage.style.backgroundColor = 'black';
+                        successMessage.style.color = 'white';
+                        successMessage.style.padding = '10px';
+                        successMessage.style.textAlign = 'center';
+                        successMessage.style.position = 'fixed';
+                        successMessage.style.top = '60%';
+                        successMessage.style.left = '60%';
+                        successMessage.style.transform = 'translate(-50%, -50%)';
+                        document.body.appendChild(successMessage);
+
+                        // Hide the message after 1 second.
+                        setTimeout(function() {
+                            successMessage.style.display = 'none';
+                        }, 1000);
+
+                        // Redirect the user to the index page after registration
+                        setTimeout(function() {
+                           
+                        }, 1000);
+                    </script>";
+                    exit(); // Stop further execution of the PHP code
+                } else {
+                    echo "Error: " . $stmt->error;
+                }
+
+                $stmt->close();
+            }
+
+            mysqli_close($conn);
+        
+        
+
+   
     if(isset($_POST['create'])){
         $firstName   = $_POST['patient_first_name'];
         $lastName    = $_POST['patient_last_name'];
@@ -387,6 +431,7 @@ require_once('patientconfig.php');
 			<!-- /Footer -->
 		   
 		</div>
+		
 		<!-- /Main Wrapper -->
 	  
 		<!-- jQuery -->

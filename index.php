@@ -92,7 +92,7 @@
 								</ul>
 							</li>	
 							<li class="has-submenu">
-							<a href="medion/index.php">Pharmacy <i class=""></i></a>
+							<a href="medistore/home.html">Pharmacy <i class=""></i></a>
 							</li>	
 							<li class="has-submenu">
 								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>
@@ -871,6 +871,8 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
+		<script src="assets/js/node.js"></script>
+		
 		
 	</body>
 

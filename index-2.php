@@ -92,7 +92,7 @@
 								</ul>
 							</li>	
 							<li class="has-submenu">
-							<a href="medion/index.php">Pharmacy <i class=""></i></a>
+							<a href="medistore/home.html">Pharmacy <i class=""></i></a>
 							</li>	
 							<li class="has-submenu">
 								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>
@@ -871,7 +871,11 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
-		
+		<script src="assets/js/node.js"></script>
+		<script src="assets/js/node1.js"></script>
+		<script src="assets/js/node2.js"></script>
+		<script src="assets/js/node3.js"></script>
+		<script src="assets/js/node4.js"></script>
 	</body>
 
 <!-- doccure/  30 Nov 2019 04:11:53 GMT -->
